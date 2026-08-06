@@ -116,8 +116,10 @@ mostrar_ok = st.sidebar.checkbox("Mostrar También Los Pedidos OK", value=False)
 # Se crea ACÁ (para que aparezca arriba de todo, antes de los tabs) pero se
 # llena más abajo, una vez que ya tenemos la orden recalculada — incluidas
 # las ediciones en vivo que se hagan en la pestaña "Editar orden".
+# Va en un expander (abierto por defecto) en vez de un bloque fijo, para que
+# quien quiera más espacio en pantalla lo pueda colapsar con un clic.
 # ---------------------------------------------------------------------------
-panorama_ejecutivo = st.container()
+panorama_ejecutivo = st.expander("📋 PANORAMA EJECUTIVO", expanded=True)
 st.divider()
 
 # ---------------------------------------------------------------------------
@@ -185,37 +187,47 @@ else:
 orden_severidad = {"Crítico": 0, "Alerta": 1, "Atención": 2, "OK": 3}
 df_visible = df_visible.sort_values("severidad", key=lambda s: s.map(orden_severidad))
 
+# Si el usuario deseleccionó todas las sucursales del filtro, varias pestañas
+# se quedan sin datos para mostrar. En vez de que cada una intente arreglárselas
+# sola (o se rompa), avisamos con un mensaje consistente.
+sin_sucursal = len(f_sucursales) == 0
+MENSAJE_SIN_SUCURSAL = "🔎 Seleccioná al menos una sucursal en el panel lateral para ver esta información."
+
 # --- Llenar el panorama ejecutivo (definido arriba, antes de los tabs) ---
 with panorama_ejecutivo:
-    st.subheader("📋 PANORAMA EJECUTIVO")
-    st.info(generar_resumen_ejecutivo(df_filtrado))
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
+    else:
+        st.info(generar_resumen_ejecutivo(df_filtrado))
 
-    en_riesgo_usd = -df_filtrado.loc[df_filtrado.impacto_usd < 0, "impacto_usd"].sum()
-    inmovilizado_usd = df_filtrado.loc[df_filtrado.impacto_usd > 0, "impacto_usd"].sum()
+        en_riesgo_usd = -df_filtrado.loc[df_filtrado.impacto_usd < 0, "impacto_usd"].sum()
+        inmovilizado_usd = df_filtrado.loc[df_filtrado.impacto_usd > 0, "impacto_usd"].sum()
 
-    k1, k2, k3, k4, k5, k6 = st.columns(6)
-    k1.metric("🔴 Críticas", int((df_filtrado.severidad == "Crítico").sum()))
-    k2.metric("🟠 Alertas", int((df_filtrado.severidad == "Alerta").sum()))
-    k3.metric("🟡 Atención", int((df_filtrado.severidad == "Atención").sum()))
-    k4.metric("Sucursales Con Crítico", df_filtrado[df_filtrado.severidad == "Crítico"]["sucursal"].nunique())
-    k5.metric("💰 $ En Riesgo", f"${en_riesgo_usd:,.0f}")
-    k6.metric("📦 $ Inmovilizado", f"${inmovilizado_usd:,.0f}")
+        k1, k2, k3, k4, k5, k6 = st.columns(6)
+        k1.metric("🔴 Críticas", int((df_filtrado.severidad == "Crítico").sum()))
+        k2.metric("🟠 Alertas", int((df_filtrado.severidad == "Alerta").sum()))
+        k3.metric("🟡 Atención", int((df_filtrado.severidad == "Atención").sum()))
+        k4.metric("Sucursales Con Crítico", df_filtrado[df_filtrado.severidad == "Crítico"]["sucursal"].nunique())
+        k5.metric("💰 $ En Riesgo", f"${en_riesgo_usd:,.0f}")
+        k6.metric("📦 $ Inmovilizado", f"${inmovilizado_usd:,.0f}")
 
-    st.caption("Semáforo por sucursal — la peor alerta pendiente de cada una:")
-    resumen_suc = resumen_por_sucursal(df_filtrado)
-    cols_suc = st.columns(len(resumen_suc)) if len(resumen_suc) else []
-    for col, (_, fila) in zip(cols_suc, resumen_suc.iterrows()):
-        with col:
-            with st.container(border=True):
-                st.markdown(f"**{_icono_severidad(fila['peor_severidad'])} {fila['sucursal'].upper()}**")
-                st.caption(f"{fila['cantidad_alertas']} alerta(s) · {fila['peor_severidad']}")
-                texto = fila["mensaje_principal"]
-                st.caption(texto if len(texto) <= 100 else texto[:97] + "...")
+        st.caption("Semáforo por sucursal — la peor alerta pendiente de cada una:")
+        resumen_suc = resumen_por_sucursal(df_filtrado)
+        cols_suc = st.columns(len(resumen_suc)) if len(resumen_suc) else []
+        for col, (_, fila) in zip(cols_suc, resumen_suc.iterrows()):
+            with col:
+                with st.container(border=True):
+                    st.markdown(f"**{_icono_severidad(fila['peor_severidad'])} {fila['sucursal'].upper()}**")
+                    st.caption(f"{fila['cantidad_alertas']} alerta(s) · {fila['peor_severidad']}")
+                    texto = fila["mensaje_principal"]
+                    st.caption(texto if len(texto) <= 100 else texto[:97] + "...")
 
 # --- Tab: Alertas ---
 with tab_alertas:
     st.subheader("ALERTAS DE LA SEMANA")
-    if len(df_visible) == 0:
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
+    elif len(df_visible) == 0:
         st.success("No hay alertas con los filtros actuales. 🎉")
     else:
         tabla = df_visible.copy()
@@ -292,7 +304,7 @@ with tab_alertas:
                 st.metric("Pedido Esta Semana", f"{f['orden_unidad_base']:.1f} {unidad}")
                 st.metric("Impacto Estimado", f"${f['impacto_usd']:,.1f}")
 
-    if len(orden_desconocida):
+    if not sin_sucursal and len(orden_desconocida):
         st.warning(
             f"⚠️ Hay {len(orden_desconocida)} línea(s) de pedido con ingredientes que no existen en el catálogo "
             "— revisá la pestaña 'Calidad de datos'."
@@ -301,87 +313,93 @@ with tab_alertas:
 # --- Tab: Panorama (gráficos) ---
 with tab_panorama:
     st.subheader("PANORAMA GENERAL")
-    colA, colB = st.columns(2)
-
-    with colA:
-        conteo = (
-            df_filtrado[df_filtrado.tipo_alerta != "OK"]
-            .groupby(["sucursal", "severidad"]).size().reset_index(name="cantidad")
-        )
-        if len(conteo):
-            fig = px.bar(
-                conteo, x="sucursal", y="cantidad", color="severidad",
-                color_discrete_map={"Crítico": "#e05252", "Alerta": "#f2a154", "Atención": "#f2d43f"},
-                title="ALERTAS POR SUCURSAL",
-                labels={"sucursal": "Sucursal", "cantidad": "Cantidad", "severidad": "Severidad"},
-            )
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.info("Sin alertas para graficar con los filtros actuales.")
-
-    with colB:
-        peores_faltantes = (
-            df_filtrado[df_filtrado.tipo_alerta.isin(["Pedido insuficiente", "Olvido"])]
-            .nsmallest(8, "diferencia_unidad_base")
-        )
-        if len(peores_faltantes):
-            fig2 = px.bar(
-                peores_faltantes, x="diferencia_unidad_base", y="nombre", color="sucursal",
-                orientation="h", title="MAYORES RIESGOS DE QUIEBRE (UNIDAD BASE FALTANTE)",
-                labels={"diferencia_unidad_base": "Faltante (Unidad Base)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
-            )
-            st.plotly_chart(fig2, use_container_width=True)
-        else:
-            st.info("No hay riesgos de quiebre con los filtros actuales.")
-
-    peores_excesos = (
-        df_filtrado[df_filtrado.tipo_alerta == "Sobre-pedido"]
-        .nlargest(8, "diferencia_unidad_base")
-    )
-    if len(peores_excesos):
-        fig3 = px.bar(
-            peores_excesos, x="diferencia_unidad_base", y="nombre", color="sucursal",
-            orientation="h", title="MAYORES EXCEDENTES (PLATA INMOVILIZADA / RIESGO DE VENCIMIENTO)",
-            labels={"diferencia_unidad_base": "Excedente (Unidad Base)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
-        )
-        st.plotly_chart(fig3, use_container_width=True)
-
-    st.divider()
-    st.markdown("**IMPACTO ECONÓMICO ESTIMADO** _(con precios de referencia — ver README)_")
-    top_impacto = df_filtrado[df_filtrado.tipo_alerta != "OK"].reindex(
-        df_filtrado[df_filtrado.tipo_alerta != "OK"]["impacto_usd"].abs().sort_values(ascending=False).index
-    ).head(10)
-    if len(top_impacto):
-        fig4 = px.bar(
-            top_impacto, x="impacto_usd", y="nombre", color="sucursal",
-            orientation="h", title="TOP 10 ALERTAS POR IMPACTO EN $ (POSITIVO = PLATA INMOVILIZADA, NEGATIVO = VALOR EN RIESGO)",
-            labels={"impacto_usd": "Impacto ($)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
-        )
-        st.plotly_chart(fig4, use_container_width=True)
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
     else:
-        st.info("Sin alertas con impacto económico para graficar.")
+        colA, colB = st.columns(2)
+
+        with colA:
+            conteo = (
+                df_filtrado[df_filtrado.tipo_alerta != "OK"]
+                .groupby(["sucursal", "severidad"]).size().reset_index(name="cantidad")
+            )
+            if len(conteo):
+                fig = px.bar(
+                    conteo, x="sucursal", y="cantidad", color="severidad",
+                    color_discrete_map={"Crítico": "#e05252", "Alerta": "#f2a154", "Atención": "#f2d43f"},
+                    title="ALERTAS POR SUCURSAL",
+                    labels={"sucursal": "Sucursal", "cantidad": "Cantidad", "severidad": "Severidad"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("Sin alertas para graficar con los filtros actuales.")
+
+        with colB:
+            peores_faltantes = (
+                df_filtrado[df_filtrado.tipo_alerta.isin(["Pedido insuficiente", "Olvido"])]
+                .nsmallest(8, "diferencia_unidad_base")
+            )
+            if len(peores_faltantes):
+                fig2 = px.bar(
+                    peores_faltantes, x="diferencia_unidad_base", y="nombre", color="sucursal",
+                    orientation="h", title="MAYORES RIESGOS DE QUIEBRE (UNIDAD BASE FALTANTE)",
+                    labels={"diferencia_unidad_base": "Faltante (Unidad Base)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
+                )
+                st.plotly_chart(fig2, use_container_width=True)
+            else:
+                st.info("No hay riesgos de quiebre con los filtros actuales.")
+
+        peores_excesos = (
+            df_filtrado[df_filtrado.tipo_alerta == "Sobre-pedido"]
+            .nlargest(8, "diferencia_unidad_base")
+        )
+        if len(peores_excesos):
+            fig3 = px.bar(
+                peores_excesos, x="diferencia_unidad_base", y="nombre", color="sucursal",
+                orientation="h", title="MAYORES EXCEDENTES (PLATA INMOVILIZADA / RIESGO DE VENCIMIENTO)",
+                labels={"diferencia_unidad_base": "Excedente (Unidad Base)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
+            )
+            st.plotly_chart(fig3, use_container_width=True)
+
+        st.divider()
+        st.markdown("**IMPACTO ECONÓMICO ESTIMADO** _(con precios de referencia — ver README)_")
+        top_impacto = df_filtrado[df_filtrado.tipo_alerta != "OK"].reindex(
+            df_filtrado[df_filtrado.tipo_alerta != "OK"]["impacto_usd"].abs().sort_values(ascending=False).index
+        ).head(10)
+        if len(top_impacto):
+            fig4 = px.bar(
+                top_impacto, x="impacto_usd", y="nombre", color="sucursal",
+                orientation="h", title="TOP 10 ALERTAS POR IMPACTO EN $ (POSITIVO = PLATA INMOVILIZADA, NEGATIVO = VALOR EN RIESGO)",
+                labels={"impacto_usd": "Impacto ($)", "nombre": "Ingrediente", "sucursal": "Sucursal"},
+            )
+            st.plotly_chart(fig4, use_container_width=True)
+        else:
+            st.info("Sin alertas con impacto económico para graficar.")
 
 # --- Tab: Pedido corregido por proveedor ---
 with tab_proveedor:
     st.subheader("PEDIDO RECOMENDADO, AGRUPADO POR PROVEEDOR")
-    st.caption(
-        "Formatos recomendados = necesidad real redondeada hacia arriba al formato de compra completo. "
-        "Listo para reenviarle a cada proveedor su parte."
-    )
-    tabla_prov = pedido_corregido_por_proveedor(df_filtrado)
-    for proveedor, grupo in tabla_prov.groupby("proveedor"):
-        with st.expander(f"📦 {proveedor.upper()} ({len(grupo)} LÍNEAS)"):
-            grupo_mostrar = grupo.drop(columns=["proveedor", "ingrediente_id"]).rename(columns={
-                "sucursal": "SUCURSAL",
-                "nombre": "INGREDIENTE",
-                "formato_compra": "FORMATO COMPRA",
-                "formatos_pedidos_original": "FORMATOS PEDIDOS ORIGINAL",
-                "formatos_recomendados": "FORMATOS RECOMENDADOS",
-            })
-            st.dataframe(grupo_mostrar, use_container_width=True, hide_index=True)
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
+    else:
+        st.caption(
+            "Formatos recomendados = necesidad real redondeada hacia arriba al formato de compra completo. "
+            "Listo para reenviarle a cada proveedor su parte."
+        )
+        tabla_prov = pedido_corregido_por_proveedor(df_filtrado)
+        for proveedor, grupo in tabla_prov.groupby("proveedor"):
+            with st.expander(f"📦 {proveedor.upper()} ({len(grupo)} LÍNEAS)"):
+                grupo_mostrar = grupo.drop(columns=["proveedor", "ingrediente_id"]).rename(columns={
+                    "sucursal": "SUCURSAL",
+                    "nombre": "INGREDIENTE",
+                    "formato_compra": "FORMATO COMPRA",
+                    "formatos_pedidos_original": "FORMATOS PEDIDOS ORIGINAL",
+                    "formatos_recomendados": "FORMATOS RECOMENDADOS",
+                })
+                st.dataframe(grupo_mostrar, use_container_width=True, hide_index=True)
 
-    csv = tabla_prov.to_csv(index=False).encode("utf-8")
-    st.download_button("⬇️ Descargar Pedido Corregido (CSV)", csv, "pedido_corregido_por_proveedor.csv", "text/csv")
+        csv = tabla_prov.to_csv(index=False).encode("utf-8")
+        st.download_button("⬇️ Descargar Pedido Corregido (CSV)", csv, "pedido_corregido_por_proveedor.csv", "text/csv")
 
 # --- Tab: Pedidos atípicos ---
 with tab_atipicos:
@@ -390,71 +408,77 @@ with tab_atipicos:
         "Compara, para cada ingrediente, cuánto pide cada sucursal en relación a su propia proyección de consumo, "
         "y marca las que se alejan mucho de las demás."
     )
-    atipicos = detectar_pedidos_atipicos(df_filtrado)
-    if len(atipicos) == 0:
-        st.info("No se detectaron pedidos claramente atípicos con los filtros actuales.")
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
     else:
-        for _, r in atipicos.iterrows():
-            st.warning(r["mensaje"])
+        atipicos = detectar_pedidos_atipicos(df_filtrado)
+        if len(atipicos) == 0:
+            st.info("No se detectaron pedidos claramente atípicos con los filtros actuales.")
+        else:
+            for _, r in atipicos.iterrows():
+                st.warning(r["mensaje"])
 
 # --- Tab: Chat con los datos ---
 with tab_chat:
     st.subheader("PREGUNTALE A LOS DATOS")
-    st.caption(
-        "Ej: '¿qué sucursal está pidiendo demasiado queso?', '¿Marbella se olvidó de algo?', "
-        "'¿hay pedidos raros esta semana?'"
-    )
+    if sin_sucursal:
+        st.info(MENSAJE_SIN_SUCURSAL)
+    else:
+        st.caption(
+            "Ej: '¿qué sucursal está pidiendo demasiado queso?', '¿Marbella se olvidó de algo?', "
+            "'¿hay pedidos raros esta semana?'"
+        )
 
-    if "mensajes_chat" not in st.session_state:
-        st.session_state.mensajes_chat = []
+        if "mensajes_chat" not in st.session_state:
+            st.session_state.mensajes_chat = []
 
-    for autor, texto in st.session_state.mensajes_chat:
-        with st.chat_message(autor):
-            st.markdown(texto)
+        for autor, texto in st.session_state.mensajes_chat:
+            with st.chat_message(autor):
+                st.markdown(texto)
 
-    pregunta = st.chat_input("Escribí tu pregunta...")
-    if pregunta:
-        st.session_state.mensajes_chat.append(("user", pregunta))
-        with st.chat_message("user"):
-            st.markdown(pregunta)
+        pregunta = st.chat_input("Escribí tu pregunta...")
+        if pregunta:
+            st.session_state.mensajes_chat.append(("user", pregunta))
+            with st.chat_message("user"):
+                st.markdown(pregunta)
 
-        respuesta = responder_pregunta(pregunta, df_filtrado)
+            respuesta = responder_pregunta(pregunta, df_filtrado)
 
-        # --- IA opcional: si hay una ANTHROPIC_API_KEY configurada en los
-        # secrets de Streamlit, se usa Claude para redactar la respuesta de
-        # forma más natural (mismos datos, mejor redacción). Si no hay key,
-        # o falla algo, se usa igual la respuesta basada en reglas de arriba
-        # -- así el chat nunca se rompe ni requiere pagar nada.
-        try:
-            api_key = st.secrets.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY"))
-        except Exception:
-            # No hay archivo secrets.toml configurado -> seguimos con la
-            # respuesta basada en reglas (comportamiento normal y esperado).
-            api_key = os.environ.get("ANTHROPIC_API_KEY")
-        if api_key:
+            # --- IA opcional: si hay una ANTHROPIC_API_KEY configurada en los
+            # secrets de Streamlit, se usa Claude para redactar la respuesta de
+            # forma más natural (mismos datos, mejor redacción). Si no hay key,
+            # o falla algo, se usa igual la respuesta basada en reglas de arriba
+            # -- así el chat nunca se rompe ni requiere pagar nada.
             try:
-                import anthropic
-
-                cliente = anthropic.Anthropic(api_key=api_key)
-                mensaje_ia = cliente.messages.create(
-                    model="claude-haiku-4-5-20251001",
-                    max_tokens=400,
-                    messages=[{
-                        "role": "user",
-                        "content": (
-                            "Sos el asistente de compras de Barrio Pizza. Reescribí esta respuesta en "
-                            "español, tono profesional pero cercano, sin inventar datos nuevos, "
-                            f"basándote solo en esto:\n\n{respuesta}\n\nPregunta original: {pregunta}"
-                        ),
-                    }],
-                )
-                respuesta = mensaje_ia.content[0].text
+                api_key = st.secrets.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY"))
             except Exception:
-                pass  # si algo falla, nos quedamos con la respuesta basada en reglas
+                # No hay archivo secrets.toml configurado -> seguimos con la
+                # respuesta basada en reglas (comportamiento normal y esperado).
+                api_key = os.environ.get("ANTHROPIC_API_KEY")
+            if api_key:
+                try:
+                    import anthropic
 
-        st.session_state.mensajes_chat.append(("assistant", respuesta))
-        with st.chat_message("assistant"):
-            st.markdown(respuesta)
+                    cliente = anthropic.Anthropic(api_key=api_key)
+                    mensaje_ia = cliente.messages.create(
+                        model="claude-haiku-4-5-20251001",
+                        max_tokens=400,
+                        messages=[{
+                            "role": "user",
+                            "content": (
+                                "Sos el asistente de compras de Barrio Pizza. Reescribí esta respuesta en "
+                                "español, tono profesional pero cercano, sin inventar datos nuevos, "
+                                f"basándote solo en esto:\n\n{respuesta}\n\nPregunta original: {pregunta}"
+                            ),
+                        }],
+                    )
+                    respuesta = mensaje_ia.content[0].text
+                except Exception:
+                    pass  # si algo falla, nos quedamos con la respuesta basada en reglas
+
+            st.session_state.mensajes_chat.append(("assistant", respuesta))
+            with st.chat_message("assistant"):
+                st.markdown(respuesta)
 
 # --- Tab: Calidad de datos ---
 with tab_calidad:

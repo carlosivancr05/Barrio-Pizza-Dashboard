@@ -527,6 +527,13 @@ def generar_resumen_ejecutivo(df):
 def resumen_por_sucursal(df):
     """Una fila por sucursal con la peor severidad presente, cantidad de
     alertas y un mensaje corto — para las tarjetas tipo semáforo."""
+    columnas = ["sucursal", "peor_severidad", "cantidad_alertas", "mensaje_principal"]
+    if len(df) == 0:
+        # Sin filas para agrupar (ej. el usuario deseleccionó todas las
+        # sucursales en el filtro) -> devolvemos la tabla vacía pero con las
+        # columnas correctas, en vez de romper en el siguiente paso.
+        return pd.DataFrame(columns=columnas)
+
     orden_severidad = {"Crítico": 0, "Alerta": 1, "Atención": 2, "OK": 3}
     filas = []
     for sucursal, grupo in df.groupby("sucursal"):
