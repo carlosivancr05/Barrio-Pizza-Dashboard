@@ -1,0 +1,23 @@
+ingrediente_id,nombre,proveedor,unidad_base,formato_compra,unidad_base_por_formato,es_perecedero,precio_referencia_usd
+harina,Harina 00,Molinos Central,kg,Saco 25 kg,25.0,No,0.9
+harina_gf,Harina gluten free,Molinos Central,kg,Bolsa 1 kg,1.0,No,3.5
+semola,Semola,Molinos Central,kg,Saco 10 kg,10.0,No,1.1
+levadura,Levadura,Molinos Central,kg,Caja 1 kg,1.0,No,6.0
+oregano,Oregano seco,Molinos Central,kg,Bolsa 1 kg,1.0,No,12.0
+mozzarella,Mozzarella,Distrib. Bella Italia,kg,Caja 10 kg,10.0,Si,7.5
+burrata,Burrata,Distrib. Bella Italia,und,Caja x 12 und,12.0,Si,4.5
+salsa_pelatti,Salsa pelatti,Distrib. Bella Italia,kg,Lata 2.55 kg,2.55,No,2.2
+pepperoni,Pepperoni,Distrib. Bella Italia,kg,Caja 5 kg,5.0,Si,9.0
+jamon,Jamon,Distrib. Bella Italia,kg,Caja 4 kg,4.0,Si,6.5
+parmesano,Parmesano,Distrib. Bella Italia,kg,Caja 5 kg,5.0,No,14.0
+queso_vegano,Queso vegano,Distrib. Bella Italia,kg,Caja 5 kg,5.0,Si,11.0
+aceite_oliva,Aceite de oliva,Importadora Istmo,L,Lata 5 L,5.0,No,8.0
+aceitunas,Aceitunas,Importadora Istmo,kg,Balde 5 kg,5.0,No,5.5
+albahaca,Albahaca fresca,AgroFresco,kg,Paquete 250 gr,0.25,Si,18.0
+arugula,Arugula,AgroFresco,kg,Paquete 250 gr,0.25,Si,14.0
+hongos,Hongos,Hongos del Valle,kg,Kilo,1.0,Si,5.0
+cebolla,Cebolla blanca,Verduras La Huerta,kg,Saco 20 kg,20.0,No,0.6
+pimenton,Pimenton,Verduras La Huerta,kg,Caja 5 kg,5.0,Si,1.8
+pina,Pina,Verduras La Huerta,und,Unidad,1.0,Si,1.2
+prosciutto,Prosciutto,Deli Gourmet,kg,Pieza 4 kg,4.0,Si,16.0
+cajas_pizza,Cajas de pizza,EmpaqueTodo,und,Paquete 50 und,50.0,No,0.35

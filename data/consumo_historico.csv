@@ -1,0 +1,529 @@
+﻿sucursal,ingrediente_id,semana,consumo_unidad_base
+Brisas del Golf,harina,S1,294
+Brisas del Golf,harina,S2,297
+Brisas del Golf,harina,S3,275
+Brisas del Golf,harina,S4,278
+Brisas del Golf,harina,S5,299
+Brisas del Golf,harina,S6,291
+Brisas del Golf,harina_gf,S1,10
+Brisas del Golf,harina_gf,S2,11
+Brisas del Golf,harina_gf,S3,11
+Brisas del Golf,harina_gf,S4,9.9
+Brisas del Golf,harina_gf,S5,10
+Brisas del Golf,harina_gf,S6,11
+Brisas del Golf,semola,S1,19
+Brisas del Golf,semola,S2,19
+Brisas del Golf,semola,S3,20
+Brisas del Golf,semola,S4,19
+Brisas del Golf,semola,S5,19
+Brisas del Golf,semola,S6,20
+Brisas del Golf,levadura,S1,7.7
+Brisas del Golf,levadura,S2,7.4
+Brisas del Golf,levadura,S3,8.0
+Brisas del Golf,levadura,S4,8.1
+Brisas del Golf,levadura,S5,7.5
+Brisas del Golf,levadura,S6,7.5
+Brisas del Golf,oregano,S1,2.7
+Brisas del Golf,oregano,S2,2.5
+Brisas del Golf,oregano,S3,2.5
+Brisas del Golf,oregano,S4,2.7
+Brisas del Golf,oregano,S5,2.7
+Brisas del Golf,oregano,S6,2.5
+Brisas del Golf,mozzarella,S1,196
+Brisas del Golf,mozzarella,S2,200
+Brisas del Golf,mozzarella,S3,198
+Brisas del Golf,mozzarella,S4,203
+Brisas del Golf,mozzarella,S5,199
+Brisas del Golf,mozzarella,S6,201
+Brisas del Golf,burrata,S1,26
+Brisas del Golf,burrata,S2,27
+Brisas del Golf,burrata,S3,26
+Brisas del Golf,burrata,S4,25
+Brisas del Golf,burrata,S5,26
+Brisas del Golf,burrata,S6,27
+Brisas del Golf,salsa_pelatti,S1,74
+Brisas del Golf,salsa_pelatti,S2,79
+Brisas del Golf,salsa_pelatti,S3,82
+Brisas del Golf,salsa_pelatti,S4,76
+Brisas del Golf,salsa_pelatti,S5,75
+Brisas del Golf,salsa_pelatti,S6,81
+Brisas del Golf,pepperoni,S1,38
+Brisas del Golf,pepperoni,S2,37
+Brisas del Golf,pepperoni,S3,40
+Brisas del Golf,pepperoni,S4,40
+Brisas del Golf,pepperoni,S5,37
+Brisas del Golf,pepperoni,S6,38
+Brisas del Golf,jamon,S1,27
+Brisas del Golf,jamon,S2,25
+Brisas del Golf,jamon,S3,26
+Brisas del Golf,jamon,S4,27
+Brisas del Golf,jamon,S5,26
+Brisas del Golf,jamon,S6,25
+Brisas del Golf,parmesano,S1,16
+Brisas del Golf,parmesano,S2,16
+Brisas del Golf,parmesano,S3,15
+Brisas del Golf,parmesano,S4,16
+Brisas del Golf,parmesano,S5,16
+Brisas del Golf,parmesano,S6,15
+Brisas del Golf,queso_vegano,S1,7.9
+Brisas del Golf,queso_vegano,S2,8.2
+Brisas del Golf,queso_vegano,S3,7.6
+Brisas del Golf,queso_vegano,S4,7.5
+Brisas del Golf,queso_vegano,S5,8.0
+Brisas del Golf,queso_vegano,S6,8.1
+Brisas del Golf,aceite_oliva,S1,31
+Brisas del Golf,aceite_oliva,S2,34
+Brisas del Golf,aceite_oliva,S3,34
+Brisas del Golf,aceite_oliva,S4,31
+Brisas del Golf,aceite_oliva,S5,32
+Brisas del Golf,aceite_oliva,S6,34
+Brisas del Golf,aceitunas,S1,12
+Brisas del Golf,aceitunas,S2,13
+Brisas del Golf,aceitunas,S3,14
+Brisas del Golf,aceitunas,S4,13
+Brisas del Golf,aceitunas,S5,12
+Brisas del Golf,aceitunas,S6,13
+Brisas del Golf,albahaca,S1,3.3
+Brisas del Golf,albahaca,S2,3.1
+Brisas del Golf,albahaca,S3,3.3
+Brisas del Golf,albahaca,S4,3.4
+Brisas del Golf,albahaca,S5,3.2
+Brisas del Golf,albahaca,S6,3.1
+Brisas del Golf,arugula,S1,4.1
+Brisas del Golf,arugula,S2,3.8
+Brisas del Golf,arugula,S3,3.7
+Brisas del Golf,arugula,S4,4.0
+Brisas del Golf,arugula,S5,4.1
+Brisas del Golf,arugula,S6,3.8
+Brisas del Golf,hongos,S1,24
+Brisas del Golf,hongos,S2,24
+Brisas del Golf,hongos,S3,23
+Brisas del Golf,hongos,S4,23
+Brisas del Golf,hongos,S5,24
+Brisas del Golf,hongos,S6,24
+Brisas del Golf,cebolla,S1,40
+Brisas del Golf,cebolla,S2,42
+Brisas del Golf,cebolla,S3,39
+Brisas del Golf,cebolla,S4,41
+Brisas del Golf,cebolla,S5,43
+Brisas del Golf,cebolla,S6,40
+Brisas del Golf,pimenton,S1,12
+Brisas del Golf,pimenton,S2,13
+Brisas del Golf,pimenton,S3,14
+Brisas del Golf,pimenton,S4,13
+Brisas del Golf,pimenton,S5,12
+Brisas del Golf,pimenton,S6,13
+Brisas del Golf,pina,S1,39
+Brisas del Golf,pina,S2,37
+Brisas del Golf,pina,S3,40
+Brisas del Golf,pina,S4,41
+Brisas del Golf,pina,S5,38
+Brisas del Golf,pina,S6,38
+Brisas del Golf,prosciutto,S1,11
+Brisas del Golf,prosciutto,S2,10
+Brisas del Golf,prosciutto,S3,10
+Brisas del Golf,prosciutto,S4,11
+Brisas del Golf,prosciutto,S5,11
+Brisas del Golf,prosciutto,S6,9.9
+Brisas del Golf,cajas_pizza,S1,2026
+Brisas del Golf,cajas_pizza,S2,2001
+Brisas del Golf,cajas_pizza,S3,1861
+Brisas del Golf,cajas_pizza,S4,1921
+Brisas del Golf,cajas_pizza,S5,2046
+Brisas del Golf,cajas_pizza,S6,1954
+Costa del Este,harina,S1,240
+Costa del Este,harina,S2,255
+Costa del Este,harina,S3,268
+Costa del Este,harina,S4,284
+Costa del Este,harina,S5,300
+Costa del Este,harina,S6,316
+Costa del Este,harina_gf,S1,8.1
+Costa del Este,harina_gf,S2,8.5
+Costa del Este,harina_gf,S3,8.1
+Costa del Este,harina_gf,S4,8.0
+Costa del Este,harina_gf,S5,8.8
+Costa del Este,harina_gf,S6,8.9
+Costa del Este,semola,S1,14
+Costa del Este,semola,S2,16
+Costa del Este,semola,S3,16
+Costa del Este,semola,S4,15
+Costa del Este,semola,S5,16
+Costa del Este,semola,S6,17
+Costa del Este,levadura,S1,5.8
+Costa del Este,levadura,S2,5.9
+Costa del Este,levadura,S3,6.5
+Costa del Este,levadura,S4,6.4
+Costa del Este,levadura,S5,6.1
+Costa del Este,levadura,S6,6.5
+Costa del Este,oregano,S1,2.0
+Costa del Este,oregano,S2,1.9
+Costa del Este,oregano,S3,2.1
+Costa del Este,oregano,S4,2.2
+Costa del Este,oregano,S5,2.1
+Costa del Este,oregano,S6,2.1
+Costa del Este,mozzarella,S1,157
+Costa del Este,mozzarella,S2,150
+Costa del Este,mozzarella,S3,147
+Costa del Este,mozzarella,S4,161
+Costa del Este,mozzarella,S5,166
+Costa del Este,mozzarella,S6,156
+Costa del Este,burrata,S1,20
+Costa del Este,burrata,S2,21
+Costa del Este,burrata,S3,20
+Costa del Este,burrata,S4,20
+Costa del Este,burrata,S5,22
+Costa del Este,burrata,S6,22
+Costa del Este,salsa_pelatti,S1,58
+Costa del Este,salsa_pelatti,S2,64
+Costa del Este,salsa_pelatti,S3,63
+Costa del Este,salsa_pelatti,S4,60
+Costa del Este,salsa_pelatti,S5,63
+Costa del Este,salsa_pelatti,S6,68
+Costa del Este,pepperoni,S1,29
+Costa del Este,pepperoni,S2,30
+Costa del Este,pepperoni,S3,32
+Costa del Este,pepperoni,S4,31
+Costa del Este,pepperoni,S5,30
+Costa del Este,pepperoni,S6,33
+Costa del Este,jamon,S1,20
+Costa del Este,jamon,S2,19
+Costa del Este,jamon,S3,21
+Costa del Este,jamon,S4,22
+Costa del Este,jamon,S5,21
+Costa del Este,jamon,S6,21
+Costa del Este,parmesano,S1,13
+Costa del Este,parmesano,S2,12
+Costa del Este,parmesano,S3,12
+Costa del Este,parmesano,S4,13
+Costa del Este,parmesano,S5,13
+Costa del Este,parmesano,S6,12
+Costa del Este,queso_vegano,S1,6.2
+Costa del Este,queso_vegano,S2,6.3
+Costa del Este,queso_vegano,S3,5.9
+Costa del Este,queso_vegano,S4,6.2
+Costa del Este,queso_vegano,S5,6.7
+Costa del Este,queso_vegano,S6,6.5
+Costa del Este,aceite_oliva,S1,25
+Costa del Este,aceite_oliva,S2,27
+Costa del Este,aceite_oliva,S3,26
+Costa del Este,aceite_oliva,S4,25
+Costa del Este,aceite_oliva,S5,27
+Costa del Este,aceite_oliva,S6,28
+Costa del Este,aceitunas,S1,9.5
+Costa del Este,aceitunas,S2,10
+Costa del Este,aceitunas,S3,11
+Costa del Este,aceitunas,S4,10
+Costa del Este,aceitunas,S5,10
+Costa del Este,aceitunas,S6,11
+Costa del Este,albahaca,S1,2.4
+Costa del Este,albahaca,S2,2.4
+Costa del Este,albahaca,S3,2.7
+Costa del Este,albahaca,S4,2.7
+Costa del Este,albahaca,S5,2.5
+Costa del Este,albahaca,S6,2.6
+Costa del Este,arugula,S1,3.1
+Costa del Este,arugula,S2,2.9
+Costa del Este,arugula,S3,3.0
+Costa del Este,arugula,S4,3.3
+Costa del Este,arugula,S5,3.2
+Costa del Este,arugula,S6,3.1
+Costa del Este,hongos,S1,19
+Costa del Este,hongos,S2,18
+Costa del Este,hongos,S3,18
+Costa del Este,hongos,S4,19
+Costa del Este,hongos,S5,20
+Costa del Este,hongos,S6,19
+Costa del Este,cebolla,S1,32
+Costa del Este,cebolla,S2,34
+Costa del Este,cebolla,S3,32
+Costa del Este,cebolla,S4,32
+Costa del Este,cebolla,S5,35
+Costa del Este,cebolla,S6,36
+Costa del Este,pimenton,S1,9.6
+Costa del Este,pimenton,S2,10
+Costa del Este,pimenton,S3,11
+Costa del Este,pimenton,S4,10
+Costa del Este,pimenton,S5,10
+Costa del Este,pimenton,S6,11
+Costa del Este,pina,S1,29
+Costa del Este,pina,S2,30
+Costa del Este,pina,S3,32
+Costa del Este,pina,S4,32
+Costa del Este,pina,S5,30
+Costa del Este,pina,S6,32
+Costa del Este,prosciutto,S1,8.1
+Costa del Este,prosciutto,S2,7.7
+Costa del Este,prosciutto,S3,8.2
+Costa del Este,prosciutto,S4,8.8
+Costa del Este,prosciutto,S5,8.4
+Costa del Este,prosciutto,S6,8.2
+Costa del Este,cajas_pizza,S1,1575
+Costa del Este,cajas_pizza,S2,1509
+Costa del Este,cajas_pizza,S3,1472
+Costa del Este,cajas_pizza,S4,1602
+Costa del Este,cajas_pizza,S5,1659
+Costa del Este,cajas_pizza,S6,1564
+Marbella,harina,S1,207
+Marbella,harina,S2,192
+Marbella,harina,S3,191
+Marbella,harina,S4,206
+Marbella,harina,S5,203
+Marbella,harina,S6,189
+Marbella,harina_gf,S1,7.5
+Marbella,harina_gf,S2,7.4
+Marbella,harina_gf,S3,6.9
+Marbella,harina_gf,S4,7.1
+Marbella,harina_gf,S5,7.6
+Marbella,harina_gf,S6,7.2
+Marbella,semola,S1,13
+Marbella,semola,S2,14
+Marbella,semola,S3,14
+Marbella,semola,S4,13
+Marbella,semola,S5,14
+Marbella,semola,S6,14
+Marbella,levadura,S1,5.1
+Marbella,levadura,S2,5.5
+Marbella,levadura,S3,5.7
+Marbella,levadura,S4,5.3
+Marbella,levadura,S5,5.2
+Marbella,levadura,S6,5.6
+Marbella,oregano,S1,1.8
+Marbella,oregano,S2,1.7
+Marbella,oregano,S3,1.9
+Marbella,oregano,S4,1.9
+Marbella,oregano,S5,1.7
+Marbella,oregano,S6,1.8
+Marbella,mozzarella,S1,139
+Marbella,mozzarella,S2,129
+Marbella,mozzarella,S3,132
+Marbella,mozzarella,S4,141
+Marbella,mozzarella,S5,136
+Marbella,mozzarella,S6,128
+Marbella,burrata,S1,19
+Marbella,burrata,S2,18
+Marbella,burrata,S3,17
+Marbella,burrata,S4,18
+Marbella,burrata,S5,19
+Marbella,burrata,S6,18
+Marbella,salsa_pelatti,S1,54
+Marbella,salsa_pelatti,S2,57
+Marbella,salsa_pelatti,S3,53
+Marbella,salsa_pelatti,S4,52
+Marbella,salsa_pelatti,S5,55
+Marbella,salsa_pelatti,S6,56
+Marbella,pepperoni,S1,28
+Marbella,pepperoni,S2,30
+Marbella,pepperoni,S3,150
+Marbella,pepperoni,S4,27
+Marbella,pepperoni,S5,29
+Marbella,pepperoni,S6,31
+Marbella,jamon,S1,17
+Marbella,jamon,S2,17
+Marbella,jamon,S3,19
+Marbella,jamon,S4,18
+Marbella,jamon,S5,17
+Marbella,jamon,S6,18
+Marbella,parmesano,S1,11
+Marbella,parmesano,S2,10
+Marbella,parmesano,S3,11
+Marbella,parmesano,S4,11
+Marbella,parmesano,S5,11
+Marbella,parmesano,S6,10
+Marbella,queso_vegano,S1,5.7
+Marbella,queso_vegano,S2,5.4
+Marbella,queso_vegano,S3,5.1
+Marbella,queso_vegano,S4,5.5
+Marbella,queso_vegano,S5,5.6
+Marbella,queso_vegano,S6,5.2
+Marbella,aceite_oliva,S1,23
+Marbella,aceite_oliva,S2,23
+Marbella,aceite_oliva,S3,22
+Marbella,aceite_oliva,S4,22
+Marbella,aceite_oliva,S5,23
+Marbella,aceite_oliva,S6,23
+Marbella,aceitunas,S1,8.7
+Marbella,aceitunas,S2,9.4
+Marbella,aceitunas,S3,9.2
+Marbella,aceitunas,S4,8.6
+Marbella,aceitunas,S5,8.9
+Marbella,aceitunas,S6,9.4
+Marbella,albahaca,S1,2.1
+Marbella,albahaca,S2,2.2
+Marbella,albahaca,S3,2.4
+Marbella,albahaca,S4,2.2
+Marbella,albahaca,S5,2.1
+Marbella,albahaca,S6,2.3
+Marbella,arugula,S1,2.7
+Marbella,arugula,S2,2.6
+Marbella,arugula,S3,2.7
+Marbella,arugula,S4,2.8
+Marbella,arugula,S5,2.6
+Marbella,arugula,S6,2.6
+Marbella,hongos,S1,17
+Marbella,hongos,S2,16
+Marbella,hongos,S3,16
+Marbella,hongos,S4,17
+Marbella,hongos,S5,17
+Marbella,hongos,S6,15
+Marbella,cebolla,S1,30
+Marbella,cebolla,S2,30
+Marbella,cebolla,S3,28
+Marbella,cebolla,S4,28
+Marbella,cebolla,S5,30
+Marbella,cebolla,S6,29
+Marbella,pimenton,S1,8.8
+Marbella,pimenton,S2,9.4
+Marbella,pimenton,S3,9.1
+Marbella,pimenton,S4,8.6
+Marbella,pimenton,S5,9.1
+Marbella,pimenton,S6,9.4
+Marbella,pina,S1,26
+Marbella,pina,S2,27
+Marbella,pina,S3,28
+Marbella,pina,S4,26
+Marbella,pina,S5,26
+Marbella,pina,S6,28
+Marbella,prosciutto,S1,7.1
+Marbella,prosciutto,S2,6.9
+Marbella,prosciutto,S3,7.4
+Marbella,prosciutto,S4,7.5
+Marbella,prosciutto,S5,6.9
+Marbella,prosciutto,S6,7.0
+Marbella,cajas_pizza,S1,1398
+Marbella,cajas_pizza,S2,1297
+Marbella,cajas_pizza,S3,1316
+Marbella,cajas_pizza,S4,1412
+Marbella,cajas_pizza,S5,1368
+Marbella,cajas_pizza,S6,1283
+Via Argentina,harina,S1,134
+Via Argentina,harina,S2,126
+Via Argentina,harina,S3,131
+Via Argentina,harina,S4,139
+Via Argentina,harina,S5,131
+Via Argentina,harina,S6,126
+Via Argentina,harina_gf,S1,5.0
+Via Argentina,harina_gf,S2,4.8
+Via Argentina,harina_gf,S3,4.6
+Via Argentina,harina_gf,S4,4.9
+Via Argentina,harina_gf,S5,5.0
+Via Argentina,harina_gf,S6,4.6
+Via Argentina,semola,S1,9.2
+Via Argentina,semola,S2,9.4
+Via Argentina,semola,S3,8.7
+Via Argentina,semola,S4,8.7
+Via Argentina,semola,S5,9.4
+Via Argentina,semola,S6,9.2
+Via Argentina,levadura,S1,3.5
+Via Argentina,levadura,S2,3.7
+Via Argentina,levadura,S3,3.7
+Via Argentina,levadura,S4,3.4
+Via Argentina,levadura,S5,3.6
+Via Argentina,levadura,S6,3.8
+Via Argentina,oregano,S1,1.1
+Via Argentina,oregano,S2,1.2
+Via Argentina,oregano,S3,1.3
+Via Argentina,oregano,S4,1.2
+Via Argentina,oregano,S5,1.1
+Via Argentina,oregano,S6,1.2
+Via Argentina,mozzarella,S1,90
+Via Argentina,mozzarella,S2,86
+Via Argentina,mozzarella,S3,91
+Via Argentina,mozzarella,S4,94
+Via Argentina,mozzarella,S5,88
+Via Argentina,mozzarella,S6,86
+Via Argentina,burrata,S1,13
+Via Argentina,burrata,S2,12
+Via Argentina,burrata,S3,12
+Via Argentina,burrata,S4,12
+Via Argentina,burrata,S5,12
+Via Argentina,burrata,S6,11
+Via Argentina,salsa_pelatti,S1,37
+Via Argentina,salsa_pelatti,S2,37
+Via Argentina,salsa_pelatti,S3,34
+Via Argentina,salsa_pelatti,S4,35
+Via Argentina,salsa_pelatti,S5,38
+Via Argentina,salsa_pelatti,S6,36
+Via Argentina,pepperoni,S1,18
+Via Argentina,pepperoni,S2,19
+Via Argentina,pepperoni,S3,18
+Via Argentina,pepperoni,S4,17
+Via Argentina,pepperoni,S5,18
+Via Argentina,pepperoni,S6,19
+Via Argentina,jamon,S1,11
+Via Argentina,jamon,S2,12
+Via Argentina,jamon,S3,13
+Via Argentina,jamon,S4,12
+Via Argentina,jamon,S5,11
+Via Argentina,jamon,S6,12
+Via Argentina,parmesano,S1,7.1
+Via Argentina,parmesano,S2,6.9
+Via Argentina,parmesano,S3,7.4
+Via Argentina,parmesano,S4,7.5
+Via Argentina,parmesano,S5,6.9
+Via Argentina,parmesano,S6,7.0
+Via Argentina,queso_vegano,S1,3.7
+Via Argentina,queso_vegano,S2,3.5
+Via Argentina,queso_vegano,S3,3.5
+Via Argentina,queso_vegano,S4,3.8
+Via Argentina,queso_vegano,S5,3.6
+Via Argentina,queso_vegano,S6,3.4
+Via Argentina,aceite_oliva,S1,16
+Via Argentina,aceite_oliva,S2,15
+Via Argentina,aceite_oliva,S3,14
+Via Argentina,aceite_oliva,S4,15
+Via Argentina,aceite_oliva,S5,16
+Via Argentina,aceite_oliva,S6,15
+Via Argentina,aceitunas,S1,6.0
+Via Argentina,aceitunas,S2,6.3
+Via Argentina,aceitunas,S3,5.9
+Via Argentina,aceitunas,S4,5.7
+Via Argentina,aceitunas,S5,6.1
+Via Argentina,aceitunas,S6,6.2
+Via Argentina,albahaca,S1,1.5
+Via Argentina,albahaca,S2,1.5
+Via Argentina,albahaca,S3,1
+Via Argentina,albahaca,S4,1.5
+Via Argentina,albahaca,S5,1.5
+Via Argentina,albahaca,S6,1.5
+Via Argentina,arugula,S1,1.7
+Via Argentina,arugula,S2,1.7
+Via Argentina,arugula,S3,1.9
+Via Argentina,arugula,S4,1.8
+Via Argentina,arugula,S5,1.7
+Via Argentina,arugula,S6,1.8
+Via Argentina,hongos,S1,11
+Via Argentina,hongos,S2,10
+Via Argentina,hongos,S3,11
+Via Argentina,hongos,S4,11
+Via Argentina,hongos,S5,11
+Via Argentina,hongos,S6,10
+Via Argentina,cebolla,S1,20
+Via Argentina,cebolla,S2,19
+Via Argentina,cebolla,S3,18
+Via Argentina,cebolla,S4,20
+Via Argentina,cebolla,S5,20
+Via Argentina,cebolla,S6,19
+Via Argentina,pimenton,S1,6.1
+Via Argentina,pimenton,S2,6.3
+Via Argentina,pimenton,S3,5.8
+Via Argentina,pimenton,S4,5.8
+Via Argentina,pimenton,S5,6.2
+Via Argentina,pimenton,S6,6.2
+Via Argentina,pina,S1,17
+Via Argentina,pina,S2,19
+Via Argentina,pina,S3,18
+Via Argentina,pina,S4,17
+Via Argentina,pina,S5,18
+Via Argentina,pina,S6,19
+Via Argentina,prosciutto,S1,4.6
+Via Argentina,prosciutto,S2,4.7
+Via Argentina,prosciutto,S3,5.0
+Via Argentina,prosciutto,S4,4.8
+Via Argentina,prosciutto,S5,4.6
+Via Argentina,prosciutto,S6,4.8
+Via Argentina,cajas_pizza,S1,902
+Via Argentina,cajas_pizza,S2,855
+Via Argentina,cajas_pizza,S3,909
+Via Argentina,cajas_pizza,S4,942
+Via Argentina,cajas_pizza,S5,880
+Via Argentina,cajas_pizza,S6,863
