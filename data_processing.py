@@ -515,8 +515,8 @@ def generar_resumen_ejecutivo(df):
     dinero = ""
     if inmovilizado > 1 or en_riesgo > 1:
         dinero = (
-            f" En términos de plata: ~${en_riesgo:,.0f} en riesgo por posibles quiebres "
-            f"y ~${inmovilizado:,.0f} inmovilizados en sobre-pedidos."
+            f" En términos de plata: ~\\${en_riesgo:,.0f} en riesgo por posibles quiebres "
+            f"y ~\\${inmovilizado:,.0f} inmovilizados en sobre-pedidos."
         )
 
     return (
