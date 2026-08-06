@@ -15,11 +15,6 @@ Se abre en `http://localhost:8501`. Ya viene con los 4 CSV de ejemplo cargados
 (carpeta `data/`); también podés subir tus propios archivos desde el panel
 lateral ("📁 Cargar mis propios datos") sin tocar el código.
 
-## Cómo publicarlo gratis
-
-[Streamlit Community Cloud](https://streamlit.io/cloud): conectás el repo de
-GitHub, elegís `app.py` como archivo principal, y listo. No hace falta pagar nada.
-
 ## Qué hace, paso a paso
 
 1. **Proyección de consumo** (`data_processing.py::proyectar_consumo`)
@@ -49,37 +44,37 @@ GitHub, elegís `app.py` como archivo principal, y listo. No hace falta pagar na
 
 ## Funcionalidades extra que agregué
 
-- ✅ **Proyección con tendencia + detección de outliers** (no un promedio simple).
-- ✅ **"Chat con los datos"**: preguntás en español normal (ej. *"¿qué sucursal
+- **1. Proyección con tendencia + detección de outliers** (no un promedio simple).
+- **2. "Chat con los datos"**: preguntás en español normal (ej. *"¿qué sucursal
   pide demasiado queso?"*) y responde en texto. Funciona 100% offline con
   reglas (matching de sucursal/ingrediente + intención), así que nunca falla
   ni requiere pagar una API. Si se configura una `ANTHROPIC_API_KEY` en los
   secrets de Streamlit, usa Claude para redactar la misma respuesta de forma
   más natural — ver sección de IA más abajo.
-- ✅ **Detección de pedidos atípicos**: compara cada sucursal contra las demás
+- **3. Detección de pedidos atípicos**: compara cada sucursal contra las demás
   (cuánto pide vs. su propia proyección) y marca las que se alejan mucho del
   resto — útil para detectar un evento puntual o un error de carga.
-- ✅ **Pedido corregido agrupado por proveedor**, listo para reenviar, con
+- **4. Pedido corregido agrupado por proveedor**, listo para reenviar, con
   botón de descarga en CSV.
-- ✅ **Edición en vivo de la orden** desde la misma interfaz (pestaña "Editar
+- **5. Edición en vivo de la orden** desde la misma interfaz (pestaña "Editar
   orden"): cambiás cantidades — incluso agregarle cantidad a algo que no
   habían pedido — y las alertas de todas las pestañas se recalculan solas.
   Esto se acerca a la visión final: cargar la orden de la semana y ver las
   alertas al instante.
-- ✅ **Panel de calidad de datos**: detecta ingredientes pedidos que no
+- **6. Panel de calidad de datos**: detecta ingredientes pedidos que no
   existen en el catálogo (ej. un ingrediente con typo o sin dar de alta) y
   combinaciones sucursal+ingrediente sin historial de consumo, en vez de
   romper o ignorarlos silenciosamente.
-- ✅ **Panorama ejecutivo** arriba de todo el dashboard: un resumen en
+- **7. Panorama ejecutivo** arriba de todo el dashboard: un resumen en
   lenguaje natural generado automáticamente ("esta semana hay 2 alertas
   críticas... sucursales que necesitan atención: ...") y un semáforo con una
   tarjeta por sucursal (🔴🟠🟡🟢) con su peor alerta pendiente — para que la
   gerente entienda el estado general sin leer ninguna tabla.
-- ✅ **Impacto económico estimado**: cada alerta se traduce a un monto en $
+- **8. Impacto económico estimado**: cada alerta se traduce a un monto en $
   (plata inmovilizada en sobre-pedidos, o valor en riesgo por posibles
   quiebres), con KPIs de $ totales y un gráfico de las alertas con mayor
   impacto. Usa precios de referencia estimados — ver supuestos abajo.
-- ✅ **Transparencia del cálculo**: al hacer clic en cualquier fila de la
+- **9. Transparencia del cálculo**: al hacer clic en cualquier fila de la
   tabla de alertas, se despliega un gráfico con las 6 semanas de consumo
   histórico + la proyección calculada para esa sucursal/ingrediente, además
   del desglose completo (proyección, stock, necesidad, pedido, impacto). Así
