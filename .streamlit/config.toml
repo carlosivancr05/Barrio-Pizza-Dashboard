@@ -1,0 +1,11 @@
+[theme]
+base = "dark"
+# Rojo-naranja tipo pizza/tomate — coherente con el rojo que ya usás para "Crítico"
+primaryColor = "#E4572E"
+# Negro cálido (con un poco de marrón), no el negro azulado por defecto de Streamlit
+backgroundColor = "#151312"
+secondaryBackgroundColor = "#221E1B"
+# Blanco cálido/crema en vez de blanco frío puro
+textColor = "#F5EFE6"
+# Tipografía condensada y bold — más "urbana/callejera", menos genérica
+font = "Oswald"
