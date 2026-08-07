@@ -19,7 +19,14 @@ from data_processing import (
     resumen_por_sucursal,
 )
 
-st.set_page_config(page_title="Barrio Pizza · Revisor de Órdenes", page_icon="🍕", layout="wide")
+LOGO_PATH = os.path.join(os.path.dirname(__file__), "assets", "logo_barrio_pizza.png")
+LOGO_DISPONIBLE = os.path.exists(LOGO_PATH)
+
+st.set_page_config(
+    page_title="Barrio Pizza · Revisor de Órdenes",
+    page_icon=LOGO_PATH if LOGO_DISPONIBLE else "🍕",
+    layout="wide",
+)
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
@@ -64,7 +71,16 @@ def leer_csv_default():
     return ing, cons, inv, ordn
 
 
-st.sidebar.title("🍕 BARRIO PIZZA")
+if LOGO_DISPONIBLE:
+    col_logo, col_titulo = st.sidebar.columns([1, 4], vertical_alignment="center")
+    with col_logo:
+        st.image(LOGO_PATH, width=55)
+    with col_titulo:
+        st.markdown("## BARRIO PIZZA")
+else:
+    # Si alguien clona el repo sin la carpeta assets/, no rompemos el
+    # dashboard — volvemos al emoji de siempre.
+    st.sidebar.title("🍕 BARRIO PIZZA")
 st.sidebar.caption("Revisor automático de órdenes de compra semanales")
 
 with st.sidebar.expander("📁 CARGAR MIS PROPIOS DATOS"):
