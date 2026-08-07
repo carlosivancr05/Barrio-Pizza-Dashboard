@@ -2,10 +2,11 @@
 base = "dark"
 # Rojo-naranja tipo pizza/tomate — coherente con el rojo que ya usás para "Crítico"
 primaryColor = "#E4572E"
-# Negro cálido (con un poco de marrón), no el negro azulado por defecto de Streamlit
+# Negro cálido (con un toque marrón), no el negro azulado por defecto de Streamlit
 backgroundColor = "#151312"
 secondaryBackgroundColor = "#221E1B"
 # Blanco cálido/crema en vez de blanco frío puro
 textColor = "#F5EFE6"
-# Tipografía condensada y bold — más "urbana/callejera", menos genérica
-font = "Oswald"
+# Tipografía condensada y bold (Google Fonts) — el formato correcto es
+# "NombreFuente:URL-de-Google-Fonts, fuente-de-respaldo"
+font = "Oswald:https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap, sans-serif"
