@@ -14,7 +14,7 @@ streamlit run app.py
 ```
 
 Se abre en `http://localhost:8501`. Ya viene con los 4 CSV de ejemplo cargados
-(carpeta `data/`); también podés subir tus propios archivos desde el panel
+(carpeta `data/`); también puedes subir tus propios archivos desde el panel
 lateral ("📁 Cargar mis propios datos") sin tocar el código.
 
 ## Qué hace, paso a paso
@@ -39,7 +39,7 @@ lateral ("📁 Cargar mis propios datos") sin tocar el código.
    menos de 1 formato completo se considera redondeo normal, no una alerta.
 5. **Alertas**, con severidad (Crítico / Alerta / Atención):
    - **Pedido insuficiente** → riesgo de quiebre.
-   - **Sobre-pedido** → plata inmovilizada, o riesgo de vencimiento si es perecedero.
+   - **Sobre-pedido** → dinero inmovilizado, o riesgo de vencimiento si es perecedero.
    - **Olvido** → la sucursal necesita el ingrediente y no lo pidió.
    - Se marcan como **Crítico** los quiebres de insumos perecederos o donde el
      stock + lo pedido cubre menos del 70% de lo proyectado.
@@ -47,7 +47,7 @@ lateral ("📁 Cargar mis propios datos") sin tocar el código.
 ## Funcionalidades extra que agregué
 
 1. **Proyección con tendencia + detección de outliers** (no un promedio simple).
-2. **"Chat con los datos"**: preguntás en español normal (ej. *"¿qué sucursal
+2. **"Chat con los datos"**: preguntas en español normal (ej. *"¿qué sucursal
   pide demasiado queso?"*) y responde en texto. Funciona 100% offline con
   reglas (matching de sucursal/ingrediente + intención), así que nunca falla
   ni requiere pagar una API. Si se configura una `ANTHROPIC_API_KEY` en los
@@ -59,7 +59,7 @@ lateral ("📁 Cargar mis propios datos") sin tocar el código.
 4. **Pedido corregido agrupado por proveedor**, listo para reenviar, con
   botón de descarga en CSV.
 5. **Edición en vivo de la orden** desde la misma interfaz (pestaña "Editar
-  orden"): cambiás cantidades — incluso agregarle cantidad a algo que no
+  orden"): cambias cantidades — incluso agregarle cantidad a algo que no
   habían pedido — y las alertas de todas las pestañas se recalculan solas.
   Esto se acerca a la visión final: cargar la orden de la semana y ver las
   alertas al instante.
@@ -73,7 +73,7 @@ lateral ("📁 Cargar mis propios datos") sin tocar el código.
   tarjeta por sucursal (🔴🟠🟡🟢) con su peor alerta pendiente — para que la
   gerente entienda el estado general sin leer ninguna tabla.
 8. **Impacto económico estimado**: cada alerta se traduce a un monto en $
-  (plata inmovilizada en sobre-pedidos, o valor en riesgo por posibles
+  (dinero inmovilizado en sobre-pedidos, o valor en riesgo por posibles
   quiebres), con KPIs de $ totales y un gráfico de las alertas con mayor
   impacto. Usa precios de referencia estimados — ver supuestos abajo.
 9. **Transparencia del cálculo**: al hacer clic en cualquier fila de la
@@ -111,7 +111,7 @@ en Odoo y se podrían traer así:
 - **`ingredientes.csv`** → módulo de Inventario de Odoo (`product.product` /
   `product.template`), con el formato de compra como una Unidad de Medida de
   compra distinta a la de stock (Odoo ya soporta UdM de compra vs. UdM de
-  stock con factor de conversión, igual que `unidad_base_por_formato` acá).
+  stock con factor de conversión, igual que `unidad_base_por_formato` aquí).
 - **`inventario_actual.csv`** → `stock.quant` filtrado por almacén/sucursal.
 - **`consumo_historico.csv`** → se puede reconstruir desde `stock.move`
   (salidas de inventario por sucursal) de las últimas semanas, o desde las
